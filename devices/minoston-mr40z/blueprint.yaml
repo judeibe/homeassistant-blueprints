@@ -2,22 +2,21 @@ blueprint:
   name: Motion Light Tutorial
   description: Turn a light on based on detected motion
   domain: automation
-
-input:
-  keypad:
-    name: Keypad
-    description: Minoston MR40Z keypad
-    selector:
-      device:
-        integration: zwave_js
-        manufacturer: Minoston
-        driver: mr40z
-  scene_001:
-    name: Large Top Button
-    description: Large top button on the keypad
-    default: []
-    selector:
-      action: {}
+  input:
+    keypad:
+      name: Keypad
+      description: Minoston MR40Z keypad
+      selector:
+        device:
+          integration: zwave_js
+          manufacturer: Minoston
+          driver: mr40z
+    scene_001:
+      name: Large Top Button
+      description: Large top button on the keypad
+      default: []
+      selector:
+        action: {}
 
 mode: single
 max_exceeded: silent
