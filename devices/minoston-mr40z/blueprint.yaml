@@ -1,0 +1,38 @@
+blueprint:
+  name: Motion Light Tutorial
+  description: Turn a light on based on detected motion
+  domain: automation
+
+input:
+  keypad:
+    name: Keypad
+    description: Minoston MR40Z keypad
+    selector:
+      device:
+        integration: zwave_js
+        manufacturer: Minoston
+        driver: mr40z
+  scene_001:
+    name: Large Top Button
+    description: Large top button on the keypad
+    default: []
+    selector:
+      action: {}
+
+mode: single
+max_exceeded: silent
+variables:
+  device_id: !input keypad
+trigger:
+  - platform: event
+    event_type: zwave_js_event
+condition: "{{ trigger.event.data.device_id == device_id }}"
+action:
+  - variables:
+      property_key_name: "{{ trigger.event.data.property_key_name }}"
+      label: "{{ trigger.event.data.label }}"
+      command_class_name: "{{ trigger.event.data.command_class_name }}"
+      value: "{{ trigger.event.data.value }}"
+  - choose:
+      - conditions: "{{ property_key_name == '001' and value == 'KeyPressed' }}"
+        sequence: !input scene_001
