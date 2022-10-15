@@ -10,7 +10,7 @@ blueprint:
         device:
           integration: zwave_js
           manufacturer: Minoston
-          driver: mr40z
+          model: MR40Z
     scene_001:
       name: Large Top Button
       description: Large top button on the keypad
