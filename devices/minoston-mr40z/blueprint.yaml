@@ -1,6 +1,7 @@
 blueprint:
-  name: Motion Light Tutorial
-  description: Turn a light on based on detected motion
+  name: Minoston MR40Z Keypad
+  description: |
+    This blueprint provides a way to integrate Minoston MR40Z Keypad with Home Assistant.
   domain: automation
   input:
     keypad:
@@ -17,6 +18,24 @@ blueprint:
       default: []
       selector:
         action: {}
+    scene_002:
+      name: Large Bottom Button
+      description: Large bottom button on the keypad
+      default: []
+      selector:
+        action: {}
+    scene_003:
+      name: Small left Button
+      description: Small left button on the keypad
+      default: []
+      selector:
+        action: {}
+    scene_004:
+      name: Small right Button
+      description: Small right button on the keypad
+      default: []
+      selector:
+        action: {}
 
 mode: single
 max_exceeded: silent
@@ -24,7 +43,7 @@ variables:
   device_id: !input keypad
 trigger:
   - platform: event
-    event_type: zwave_js_event
+    event_type: zwave_js_value_notification
 condition: "{{ trigger.event.data.device_id == device_id }}"
 action:
   - variables:
@@ -35,3 +54,49 @@ action:
   - choose:
       - conditions: "{{ property_key_name == '001' and value == 'KeyPressed' }}"
         sequence: !input scene_001
+      - conditions: "{{ property_key_name == '001' and value == 'KeyPressed2x' }}"
+        sequence: !input scene_001
+      - conditions: "{{ property_key_name == '001' and value == 'KeyPressed3x' }}"
+        sequence: !input scene_001
+      - conditions: "{{ property_key_name == '001' and value == 'KeyHeldDown' }}"
+        sequence: !input scene_001
+      - conditons: "{{ property_key_name == '001' and value == 'KeyReleased' }}"
+        sequence: !input scene_001
+      - conditions: "{{ property_key_name == '001' and value == 'KeyPressed' }}"
+        sequence: !input scene_001
+      - conditions: "{{ property_key_name == '001' and value == 'KeyPressed2x' }}"
+        sequence: !input scene_001
+      - conditions: "{{ property_key_name == '001' and value == 'KeyPressed3x' }}"
+        sequence: !input scene_001
+      - conditions: "{{ property_key_name == '001' and value == 'KeyHeldDown' }}"
+        sequence: !input scene_001
+      - conditons: "{{ property_key_name == '002' and value == 'KeyPressed' }}"
+        sequence: !input scene_002
+      - conditions: "{{ property_key_name == '002' and value == 'KeyPressed2x' }}"
+        sequence: !input scene_002
+      - conditions: "{{ property_key_name == '002' and value == 'KeyPressed3x' }}"
+        sequence: !input scene_002
+      - conditions: "{{ property_key_name == '002' and value == 'KeyHeldDown' }}"
+        sequence: !input scene_002
+      - conditons: "{{ property_key_name == '002' and value == 'KeyReleased' }}"
+        sequence: !input scene_002
+      - conditions: "{{ property_key_name == '003' and value == 'KeyPressed' }}"
+        sequence: !input scene_003
+      - conditions: "{{ property_key_name == '003' and value == 'KeyPressed2x' }}"
+        sequence: !input scene_003
+      - conditions: "{{ property_key_name == '003' and value == 'KeyPressed3x' }}"
+        sequence: !input scene_003
+      - conditions: "{{ property_key_name == '003' and value == 'KeyHeldDown' }}"
+        sequence: !input scene_003
+      - conditons: "{{ property_key_name == '003' and value == 'KeyReleased' }}"
+        sequence: !input scene_003
+      - conditions: "{{ property_key_name == '004' and value == 'KeyPressed' }}"
+        sequence: !input scene_004
+      - conditions: "{{ property_key_name == '004' and value == 'KeyPressed2x' }}"
+        sequence: !input scene_004
+      - conditions: "{{ property_key_name == '004' and value == 'KeyPressed3x' }}"
+        sequence: !input scene_004
+      - conditions: "{{ property_key_name == '004' and value == 'KeyHeldDown' }}"
+        sequence: !input scene_004
+      - conditons: "{{ property_key_name == '004' and value == 'KeyReleased' }}"
+        sequence: !input scene_004
