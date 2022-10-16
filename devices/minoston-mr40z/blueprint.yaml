@@ -60,7 +60,7 @@ action:
         sequence: !input scene_001
       - conditions: "{{ property_key_name == '001' and value == 'KeyHeldDown' }}"
         sequence: !input scene_001
-      - conditons: "{{ property_key_name == '001' and value == 'KeyReleased' }}"
+      - conditions: "{{ property_key_name == '001' and value == 'KeyReleased' }}"
         sequence: !input scene_001
       - conditions: "{{ property_key_name == '001' and value == 'KeyPressed' }}"
         sequence: !input scene_001
@@ -70,7 +70,7 @@ action:
         sequence: !input scene_001
       - conditions: "{{ property_key_name == '001' and value == 'KeyHeldDown' }}"
         sequence: !input scene_001
-      - conditons: "{{ property_key_name == '002' and value == 'KeyPressed' }}"
+      - conditions: "{{ property_key_name == '002' and value == 'KeyPressed' }}"
         sequence: !input scene_002
       - conditions: "{{ property_key_name == '002' and value == 'KeyPressed2x' }}"
         sequence: !input scene_002
@@ -78,7 +78,7 @@ action:
         sequence: !input scene_002
       - conditions: "{{ property_key_name == '002' and value == 'KeyHeldDown' }}"
         sequence: !input scene_002
-      - conditons: "{{ property_key_name == '002' and value == 'KeyReleased' }}"
+      - conditions: "{{ property_key_name == '002' and value == 'KeyReleased' }}"
         sequence: !input scene_002
       - conditions: "{{ property_key_name == '003' and value == 'KeyPressed' }}"
         sequence: !input scene_003
@@ -88,7 +88,7 @@ action:
         sequence: !input scene_003
       - conditions: "{{ property_key_name == '003' and value == 'KeyHeldDown' }}"
         sequence: !input scene_003
-      - conditons: "{{ property_key_name == '003' and value == 'KeyReleased' }}"
+      - conditions: "{{ property_key_name == '003' and value == 'KeyReleased' }}"
         sequence: !input scene_003
       - conditions: "{{ property_key_name == '004' and value == 'KeyPressed' }}"
         sequence: !input scene_004
@@ -98,5 +98,5 @@ action:
         sequence: !input scene_004
       - conditions: "{{ property_key_name == '004' and value == 'KeyHeldDown' }}"
         sequence: !input scene_004
-      - conditons: "{{ property_key_name == '004' and value == 'KeyReleased' }}"
+      - conditions: "{{ property_key_name == '004' and value == 'KeyReleased' }}"
         sequence: !input scene_004
